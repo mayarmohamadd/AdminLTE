@@ -80,6 +80,20 @@
                     </ul>
                 </li>
 
+                <li class="nav-item {{ $current_route == 'admin.register' ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ $current_route == 'admin.register' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users-cog"></i>
+                        <p>Admin Users<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.register') }}" class="nav-link {{ $current_route == 'admin.register' ? 'active' : '' }}">
+                                <p>Register New Admin</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

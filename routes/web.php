@@ -13,6 +13,8 @@ Route::get('/', function () {
 Route::get('admin/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('admin/login', [AuthController::class, 'login'])->name('postLogin');
 Route::get('/admin/logout', [ProfileController::class, 'logout'])->name('logout');
+Route::get('admin/register', [AuthController::class, 'getRegister'])->name('admin.register')->middleware('auth');
+Route::post('admin/register', [AuthController::class, 'register'])->middleware('auth');
 
 
 Route::middleware(['auth'])->group(function () {
