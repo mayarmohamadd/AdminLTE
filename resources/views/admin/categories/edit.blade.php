@@ -1,7 +1,10 @@
 @extends('admin.partials.main-layout')
 @section('title', 'Edit Category')
+@section('Page', 'Edit Category')
+@section('main-page', 'Edit Category')
+
 @section('body')
-<h1>Edit Category</h1>
+
 
 @if ($errors->any())
     <div class="alert alert-danger">

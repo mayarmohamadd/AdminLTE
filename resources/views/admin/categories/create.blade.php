@@ -1,7 +1,9 @@
 @extends('admin.partials.main-layout')
 @section('title', 'Create Categories')
+@section('Page', 'Create Categories')
+@section('main-page', 'Create Categories')
+
 @section('body')
-<h1>Create New Category</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">

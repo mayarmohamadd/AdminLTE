@@ -1,5 +1,7 @@
 @extends('admin.partials.main-layout')
 @section('title', 'show Article')
+@section('Page', 'show Article')
+@section('main-page', 'show Article')
 @section('body')
     <div class="container">
         <h1>{{ $article->title }}</h1>

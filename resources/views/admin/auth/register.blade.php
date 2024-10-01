@@ -1,22 +1,7 @@
 @extends('admin.partials.main-layout')
-
-@section('content-header')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Register New Admin</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Register Admin</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title', 'Register')
+@section('Page', 'Register')
+@section('main-page', 'Register')
 
 @section('body')
     <div class="container-fluid">
@@ -32,7 +17,7 @@
                             <!-- Name Field -->
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" required autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +29,7 @@
                             <!-- Email Field -->
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"  required>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

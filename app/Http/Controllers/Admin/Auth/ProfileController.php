@@ -15,7 +15,7 @@ class ProfileController extends Controller
     public function dashboard(){
         $articleCount = Article::count();
         $categoriesCount = Category::count();
-        $adminsCount = User::where('is_admin', 1)->count();
+        $adminsCount = User::count();
         $topArticles = Article::latest()->take(5)->get();
         return view('admin.dashboard', compact('articleCount', 'categoriesCount', 'adminsCount',  'topArticles'));
     }

@@ -1,7 +1,9 @@
 @extends('admin.partials.main-layout')
 @section('title', 'Create Article')
+@section('Page', 'Create New Article')
+@section('main-page', 'Create New Article')
+
 @section('body')
-<h1>Create New Article</h1>
 <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">

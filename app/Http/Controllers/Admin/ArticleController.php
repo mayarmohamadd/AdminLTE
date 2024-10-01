@@ -12,7 +12,7 @@ class ArticleController extends Controller
 {
 
     public function index(){
-        $articles = Article::with('category', 'user')->paginate(10);
+        $articles = Article::with('category', 'user')->get();
         return view('admin.articles.index', compact('articles'));
     }
 

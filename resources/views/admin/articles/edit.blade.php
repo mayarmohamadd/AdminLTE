@@ -1,7 +1,9 @@
 @extends('admin.partials.main-layout')
 @section('title', 'Edit Article')
+@section('Page', 'Edit Article')
+@section('main-page', 'Edit Article')
 @section('body')
-<h1>Edit Article</h1>
+
 <form action="{{ route('articles.update', $article) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')

@@ -1,10 +1,11 @@
 @extends('admin.partials.main-layout')
 
 @section('title', 'Categories')
+@section('Page', 'Categories')
+@section('main-page', 'Categories')
 
 @section('body')
 <div class="d-flex justify-content-between mb-3">
-    <h1>Categories</h1>
     <a href="{{ route('categories.create') }}" class="btn btn-primary">Create New Category</a>
 </div>
 
@@ -25,7 +26,7 @@
     <tbody>
         @foreach ($categories as $category)
         <tr>
-            <td>{{ $loop->iteration }}</td>
+            <td>{{ $loop->iteration + ($categories->currentPage() - 1) * $categories->perPage() }}</td>
             <td>{{ $category->name }}</td>
             <td>
                 <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning btn-sm">Edit</a>
@@ -40,6 +41,10 @@
     </tbody>
 </table>
 
-{{ $categories->links() }}
+<!-- Pagination Links -->
+<div class="d-flex justify-content-center">
+    {{ $categories->links('vendor.pagination.simple-bootstrap-4') }}
+</div>
+
 
 @endsection

@@ -1,10 +1,19 @@
 @extends('admin.partials.main-layout')
 @section('title', 'Articles')
+@section('Page', 'Articles')
+@section('main-page', 'Articles')
+
 @section('body')
 <div class="d-flex justify-content-between mb-3">
-    <h1>Articles</h1>
+
     <a href="{{ route('articles.create') }}" class="btn btn-primary">Create New Article</a>
 </div>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 
 <table class="table table-bordered">
     <thead>
@@ -46,5 +55,5 @@
         @endforeach
     </tbody>
 </table>
-{{ $articles->links() }}
+
 @endsection
