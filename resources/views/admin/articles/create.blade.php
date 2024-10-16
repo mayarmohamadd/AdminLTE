@@ -23,9 +23,8 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="image">Image</label>
-        <input type="file" name="image" id="image" class="form-control">
-    </div>
+        <label for="images">Images</label>
+        <input type="file" name="images[]" id="images" class="form-control" multiple> 
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
 @endsection

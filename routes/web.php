@@ -3,12 +3,8 @@ use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\Auth\ProfileController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
-
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/', [AuthController::class, 'getLogin'])->name('login');
 Route::post('/', [AuthController::class, 'login'])->name('postLogin');
@@ -17,9 +13,13 @@ Route::get('admin/register', [AuthController::class, 'getRegister'])->name('admi
 Route::post('admin/register', [AuthController::class, 'register'])->middleware('auth');
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/admin/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
+//     Route::resource('articles', ArticleController::class);
+//     Route::resource('categories', CategoryController::class);
+// });
+
+
+Route::get('/admin/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
     Route::resource('articles', ArticleController::class);
     Route::resource('categories', CategoryController::class);
-});
-

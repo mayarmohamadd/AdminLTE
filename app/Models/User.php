@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable,HasApiTokens;
 
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -32,7 +34,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    public function articles()
+    public function news()
     {
         return $this->hasMany(Article::class);
     }

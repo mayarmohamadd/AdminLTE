@@ -21,8 +21,8 @@
             <th>#</th>
             <th>Title</th>
             <th>Category</th>
-            <th>Author</th>
-            <th>Image</th>
+            {{-- <th>Author</th> --}}
+            {{-- <th>Image</th> --}}
             <th>Created At</th>
             <th>Actions</th>
         </tr>
@@ -33,14 +33,17 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $article->title }}</td>
             <td>{{ $article->category->name }}</td>
-            <td>{{ $article->user->name }}</td>
-            <td>
-                @if ($article->image)
-                    <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" width="100">
+            {{-- <td>{{ $article->news->name }}</td> --}}
+            {{-- <td>
+                @if ($article->images->isNotEmpty())
+                    @foreach ($article->images as $image)
+                        <img src="{{ asset('storage/' . $image->file_path) }}" alt="{{ $article->title }}" width="100">
+                    @endforeach
                 @else
                     <span>No image</span>
                 @endif
-            </td>
+            </td> --}}
+
 
             <td>{{ $article->created_at->format('Y-m-d') }}</td>
             <td>

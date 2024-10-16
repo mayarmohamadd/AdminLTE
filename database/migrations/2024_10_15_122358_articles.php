@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // use connection when have many db
-        Schema::connection('english')->create('categories', function (Blueprint $table) {
+        Schema::connection('english')->create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->timestamps();
-        });
+            $table->string('title');
+            $table->text('content');
+
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('news_id');
+            $table->timestamps();});
     }
 
     /**
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        //
     }
 };

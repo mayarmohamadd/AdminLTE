@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $connection = 'english';
+
     protected $guarded = [];
+
     public function articles(){
         return $this->hasMany(Article::class);
     }
