@@ -18,7 +18,7 @@ class Article extends Model
     }
 
     public function news(){
-        return $this->hasOne(news::class);
+        return $this->belongsTo(news::class);
     }
     // public function images(){
     //     return $this->hasMany(Images::class,'news_id','news_id');

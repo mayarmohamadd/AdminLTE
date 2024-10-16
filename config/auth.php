@@ -42,6 +42,13 @@ return [
         ],
     ],
 
+    'guards' => [
+    'api' => [
+        'driver' => 'jwt',  // or 'sanctum' if you use Sanctum
+        'provider' => 'users',
+        'hash' => false,
+    ],
+],
     /*
     |--------------------------------------------------------------------------
     | User Providers
