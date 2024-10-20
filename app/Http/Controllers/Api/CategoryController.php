@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -15,7 +17,17 @@ class CategoryController extends Controller
     // Get all Categories
     public function index(){
         $categories = Category::on('english')->get();
-        return ApiResponse::sendResponse(200,'This is all Categories',$categories);
+        return ApiResponse::sendResponse(200,'This is all Categories',CategoryResource::collection($categories));
+
+    }
+
+    // Get special Categories
+    public function show($id){
+        $category=Category::find($id);
+        if(!$category){
+            return ApiResponse::sendResponse(404,'Category not found');
+        }
+        return ApiResponse::sendResponse(200,'This is Category',new CategoryResource($category));
 
     }
 
@@ -28,7 +40,7 @@ class CategoryController extends Controller
             return ApiResponse::sendResponse(404,'Validation error',$validator->errors());
         }
         $category=Category::on('english')->create(['name' => $request->name]);
-        return ApiResponse::sendResponse(201,'Created Successfully',$category);
+        return ApiResponse::sendResponse(201, 'Created Successfully', new CategoryResource($category));
     }
 
     // Update Category
@@ -44,7 +56,7 @@ class CategoryController extends Controller
             return ApiResponse::sendResponse(404,'Validation error',$validator->errors());
         }
         $category->update(['name' => $request->name]);
-        return ApiResponse::sendResponse(200,'Category updated Successfully',$category);
+        return ApiResponse::sendResponse(201, 'Category Updated Successfully', new CategoryResource($category));
     }
 
     //Delete Specific Category
